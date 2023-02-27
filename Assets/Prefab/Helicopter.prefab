@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7102571045568767270}
   - component: {fileID: 7853077216183925268}
   - component: {fileID: 2327433361893136601}
+  - component: {fileID: 3762456376629872520}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Helicopter
@@ -187,3 +188,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2779878, y: 0.12824583}
   m_EdgeRadius: 0
+--- !u!114 &3762456376629872520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7102571045568767271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32d87735b15e04e9215808efd615bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
