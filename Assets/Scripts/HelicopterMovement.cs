@@ -39,6 +39,7 @@ public class HelicopterMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.A)){
             moveX  = -1f;
             GetComponent<SpriteRenderer>().flipX = true;
+            
         }
         if(Input.GetKey(KeyCode.D)){
             moveX  = +1f;
@@ -46,7 +47,39 @@ public class HelicopterMovement : MonoBehaviour
         }
         Vector3 moveDirection = new Vector3(moveX, moveY).normalized;
         transform.position += moveDirection * speed * Time.deltaTime;
+        
     }
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        
+        if(collision.gameObject.tag == "Soldier") {
+            if(currentCapacity < maxCapacity){
+                Destroy(collision.gameObject);
+                currentCapacity+=1;
+            }
+        }
+
+        
+        if(collision.gameObject.tag == "Hospital"){
+            soldiersRescued += currentCapacity;
+            currentCapacity = 0;
+            Debug.Log("Rescued soldiers: " + soldiersRescued.ToString());
+        }
+
+        if(collision.gameObject.tag == "Tree"){
+            soldiersRescued = 0;
+            currentCapacity = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }       
+    }
+
+    public float getRescued(){
+        return soldiersRescued;
+    }
+    public float getAllSoldiers(){
+        return soldiers.Length;
+    }
+
 
 }
 
