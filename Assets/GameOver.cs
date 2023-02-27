@@ -5,9 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
-{
-    // Start is called before the first frame update
-    public void Setup(){
+{    public void Setup(){
         Debug.Log("Turn background on");
         gameObject.SetActive(true);
         

@@ -22,6 +22,8 @@ public class HelicopterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soldiersRescued = 0f;
+        currentCapacity = 0f;
         Time.timeScale = 1f;
         soldiers = GameObject.FindGameObjectsWithTag("Soldier");
 
@@ -43,12 +45,11 @@ public class HelicopterMovement : MonoBehaviour
     public void LoseGame(){
         Time.timeScale = 0f;
         GameOver.Setup();
-        soldiersRescued = 0f;
+        
     }
     public void WinGame(){
         Time.timeScale = 0f;
         Win.Setup();
-        soldiersRescued = 0;
     }
     
     private void movement(){
