@@ -9,7 +9,7 @@ public class HelicopterMovement : MonoBehaviour
     //initialise variables
     private const float speed = 5f;
     private float maxCapacity = 3f;
-    private float currentCapacity = 0f;
+    public static float  currentCapacity = 0f;
     public static float soldiersRescued = 0f;
 
     public static GameObject[] soldiers;
@@ -75,6 +75,9 @@ public class HelicopterMovement : MonoBehaviour
 
     public float getRescued(){
         return soldiersRescued;
+    }
+    public float getCurrentCapacity(){
+        return currentCapacity;
     }
     public float getAllSoldiers(){
         return soldiers.Length;
