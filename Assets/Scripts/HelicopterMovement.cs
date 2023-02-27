@@ -39,6 +39,10 @@ public class HelicopterMovement : MonoBehaviour
             WinGame();
          
         }
+        if(Input.GetKey(KeyCode.R)){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
 
 
     }
