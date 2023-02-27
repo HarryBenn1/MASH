@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HelicopterMovement : MonoBehaviour
 {
-    
+    public AudioClip soldierPickup;
     //initialise variables
     private const float speed = 5f;
     private float maxCapacity = 3f;
@@ -84,6 +84,8 @@ public class HelicopterMovement : MonoBehaviour
         
         if(collision.gameObject.tag == "Soldier") {
             if(currentCapacity < maxCapacity){
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.Play();
                 Destroy(collision.gameObject);
                 currentCapacity+=1;
             }
