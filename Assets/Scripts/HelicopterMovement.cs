@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class HelicopterMovement : MonoBehaviour
 {
+    
     //initialise variables
     private const float speed = 5f;
     private float maxCapacity = 3f;
@@ -14,18 +15,42 @@ public class HelicopterMovement : MonoBehaviour
 
     public static GameObject[] soldiers;
     
+
+    public Win Win;
+    public GameOver GameOver;
+
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         soldiers = GameObject.FindGameObjectsWithTag("Soldier");
+
     }
 
     // Update is called once per frame
     void Update()
     {
         movement();
-    }
 
+        if(soldiers.Length == soldiersRescued){
+
+            WinGame();
+         
+        }
+
+
+    }
+    public void LoseGame(){
+        Time.timeScale = 0f;
+        GameOver.Setup();
+        soldiersRescued = 0f;
+    }
+    public void WinGame(){
+        Time.timeScale = 0f;
+        Win.Setup();
+        soldiersRescued = 0;
+    }
+    
     private void movement(){
         float moveX = 0f;
         float moveY = 0f;
@@ -67,9 +92,7 @@ public class HelicopterMovement : MonoBehaviour
         }
 
         if(collision.gameObject.tag == "Tree"){
-            soldiersRescued = 0;
-            currentCapacity = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            LoseGame();
         }       
     }
 
